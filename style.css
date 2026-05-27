@@ -1,1 +1,62 @@
 /* Add your CSS here */
+
+/* Style the header section */
+header {
+  /* Intel blue background color */
+  background-color: #0071c5;
+  /* Add padding for spacing inside the header */
+  padding: 40px 20px;
+  /* Center align all content */
+  text-align: center;
+}
+
+/* Style the container inside the header */
+header div {
+  /* Maximum width to keep content readable */
+  max-width: 800px;
+  /* Center the container on the page */
+  margin: 0 auto;
+}
+
+/* Style the Intel logo */
+header img {
+  /* Set a reasonable width for the logo */
+  width: 120px;
+  /* Keep the height automatic to maintain aspect ratio */
+  height: auto;
+  /* Add space below the logo */
+  margin-bottom: 20px;
+}
+
+/* Style the main heading */
+header h1 {
+  /* White text for contrast against blue background */
+  color: white;
+  /* Make the heading large and bold */
+  font-size: 48px;
+  font-weight: bold;
+  /* Remove default margin and add custom spacing */
+  margin: 20px 0;
+}
+
+/* Style the subheading paragraph */
+header p {
+  /* White text for contrast */
+  color: white;
+  /* Make the text larger and readable */
+  font-size: 18px;
+  /* Set line height for better readability */
+  line-height: 1.6;
+  /* Add margin for spacing */
+  margin: 20px 0;
+}
+
+/* Style images in the timeline cards */
+section img {
+  /* Set width to 500 pixels */
+  width: 500px;
+  /* Set height to 200 pixels */
+  height: 200px;
+  /* Cover the area without stretching the image */
+  object-fit: cover;
+}
