@@ -57,6 +57,6 @@ section img {
   width: 500px;
   /* Set height to 200 pixels */
   height: 200px;
-  /* Cover the area without stretching the image */
+  /* Cover the space without stretching or distorting the image */
   object-fit: cover;
 }
