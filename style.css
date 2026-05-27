@@ -2,10 +2,10 @@
 
 /* Style the header section */
 header {
-  /* Intel blue background color */
-  background-color: #0071c5;
+  /* Intel blue gradient background */
+  background: linear-gradient(135deg, #0071c5, #00a3ff);
   /* Add padding for spacing inside the header */
-  padding: 40px 20px;
+  padding: 32px 20px;
   /* Center align all content */
   text-align: center;
 }
@@ -34,7 +34,7 @@ header h1 {
   color: white;
   /* Make the heading large and bold */
   font-size: 48px;
-  font-weight: bold;
+  font-weight: 800;
   /* Remove default margin and add custom spacing */
   margin: 20px 0;
 }
@@ -62,7 +62,7 @@ section img {
   /* Add rounded corners to images */
   border-radius: 4px;
   /* Add margin below the image */
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 /* Style the timeline cards section */
@@ -75,21 +75,26 @@ section {
   overflow-x: auto;
   /* Prevent vertical scrolling */
   overflow-y: hidden;
+  /* Hide the browser scrollbar while keeping scroll behavior */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
   /* Make section fit the screen up to the visible 4-card width */
   width: 100%;
-  max-width: 1270px;
+  max-width: 1235px;
   /* Include padding in the section width */
   box-sizing: border-box;
-  /* Add padding around the section */
-  padding: 40px 20px;
+  /* Keep only vertical padding so the timeline edges remain flush */
+  padding: 32px 0;
   /* Add gap (space) between cards */
-  gap: 20px;
-  /* Light gray background for the section */
-  background-color: #f5f5f5;
+  gap: 16px;
+  /* Light gray gradient background for the section */
+  background: linear-gradient(90deg, #f5f5f5, #ebf4ff);
   /* Enable smooth scrolling behavior */
   scroll-behavior: smooth;
   /* Center the section on larger screens */
   margin: 0 auto;
+  /* Use horizontal scroll snapping for smooth navigation */
+  scroll-snap-type: x mandatory;
 }
 
 /* Style individual card divs */
@@ -99,9 +104,11 @@ section div {
   /* Prevent cards from shrinking */
   flex-shrink: 0;
   /* Add padding inside the card */
-  padding: 20px;
-  /* Add white background to cards */
-  background-color: white;
+  padding: 18px;
+  /* Keep card size natural when hidden text is not visible */
+  position: relative;
+  /* Add white gradient background to cards */
+  background: linear-gradient(180deg, #ffffff, #eef6ff);
   /* Add a border around each card */
   border: 2px solid #0071c5;
   /* Add rounded corners for modern look */
@@ -110,42 +117,14 @@ section div {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   /* Smooth transition for hover effects */
   transition: all 0.3s ease;
+  /* Align each card to the scroll snap position */
+  scroll-snap-align: start;
 }
 
-/* Add hover effect to cards */
-section div:hover {
-  /* Move card up slightly */
-  transform: translateY(-8px);
-  /* Make shadow bigger on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  /* Change border color to brighter blue */
-  border-color: #0071c5;
-}
-
-/* Style the year heading (h2) in cards */
-section div h2 {
-  /* Make the year very large */
-  font-size: 36px;
-  /* Make it bold */
-  font-weight: bold;
-  /* Use Intel blue color */
-  color: #0071c5;
-  /* Remove default margin */
-  margin: 0 0 10px 0;
-  /* Add padding at bottom */
-  padding-bottom: 10px;
-}
-
-/* Style the card title (h3) in cards */
-section div h3 {
-  /* Make the title medium sized */
-  font-size: 20px;
-  /* Make it bold */
-  font-weight: bold;
-  /* Dark gray color for readability */
-  color: #333;
-  /* Add spacing below the title */
-  margin: 0 0 15px 0;
+/* Make card focus visible for keyboard users */
+section div:focus {
+  outline: 3px solid rgba(0, 113, 197, 0.6);
+  outline-offset: 4px;
 }
 
 /* Style the card paragraph text */
@@ -159,13 +138,23 @@ section div p {
   /* Remove default margin */
   margin: 0;
   /* Hide paragraph text by default */
-  display: none;
+  opacity: 0;
+  transform: translateY(100%);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
 }
 
-/* Show paragraph on hover */
-section div:hover p {
-  /* Show the paragraph when hovering */
-  display: block;
+/* Reveal details on hover or keyboard focus */
+section div:hover p,
+section div:focus p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Style the footer text */
@@ -173,7 +162,7 @@ body > p {
   /* Center the text */
   text-align: center;
   /* Add padding around it */
-  padding: 20px;
+  padding: 16px;
   /* Light gray background */
   background-color: #f5f5f5;
   /* Dark gray text */
@@ -219,4 +208,17 @@ body > p {
     /* Make subheading text smaller on mobile */
     font-size: 16px;
   }
+}
+
+body {
+  /* Use Intel-friendly sans-serif font from Google Fonts */
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  /* Add a subtle background gradient to the whole page */
+  background: linear-gradient(180deg, #eef3fb 0%, #ffffff 100%);
+}
+
+/* Hide scrollbar for WebKit browsers */
+section::-webkit-scrollbar {
+  display: none;
 }
